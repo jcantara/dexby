@@ -1,5 +1,8 @@
+.rvmrc
+.rspec
 *.gem
 *.rbc
+*.swp
 .bundle
 .config
 .yardoc
