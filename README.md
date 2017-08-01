@@ -1,5 +1,7 @@
 # Dexby
 
+[![Build Status](https://travis-ci.org/jcantara/dexby.svg?branch=master)](https://travis-ci.org/jcantara/dexby)
+
 Dexcom API wrapper for Ruby
 
 Just so this is said right off: this software should NEVER be relied upon for medical use.
