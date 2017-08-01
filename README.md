@@ -32,7 +32,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'dexby'
+
+dex = Dexby.new('YourDexcomUsername','dexcomPassword12345')
+
+dex.read
+```
 
 ## Contributing
 
