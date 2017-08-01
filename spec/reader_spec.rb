@@ -55,6 +55,20 @@ RSpec.describe Dexby::Reader do
     end
 
     describe "#read" do
+      context "arguments" do
+        before(:example) do
+          allow(fake_connection_class).to receive(:login).and_return(['banana', 200])
+          allow(fake_parser_class).to receive(:parse_all).and_return([])
+        end
+        it "accepts optional minutes and count arguments" do
+          expect(fake_connection_class).to receive(:read).with('banana', 23,24).and_return([[],200])
+          subject.read(23,24)
+        end
+        it "has default minutes and count arguments" do
+          expect(fake_connection_class).to receive(:read).with('banana', 1440, 1).and_return([[],200])
+          subject.read
+        end
+      end
       context "without an existing session_id" do
         before(:example) do
           allow(fake_connection_class).to receive(:read).and_return([[],200])

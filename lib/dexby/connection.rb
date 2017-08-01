@@ -28,7 +28,7 @@ class Dexby::Connection
     [response.body.tr('"',''), response.code]
   end
 
-  def self.read(session_id, minutes=1440, count=1)
+  def self.read(session_id, minutes, count)
     response = self.post(READ_ENDPOINT, query: read_query(session_id, minutes, count))
     [response.parsed_response, response.code]
   end

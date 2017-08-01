@@ -18,26 +18,30 @@ class Dexby::Reader
     @parser_class
   end
 
-  def read
+  def read(minutes=1440, count=1)
     ensure_session_id
-    result = session_connection_read
+    result = session_connection_read(minutes, count)
     if result[1] != 200
       raise ::StandardError
     end
     parser.parse_all(result[0])
   end
 
-  def session_connection_read
-    result = connection.read(@session_id)
+  def session_connection_read(minutes, count)
+    result = read_connection(minutes, count)
     if result[1] == 401 # expired session_id
-      result = get_session_reread
+      result = get_session_reread(minutes, count)
     end
     return result
   end
 
-  def get_session_reread
+  def get_session_reread(minutes, count)
     get_session_id
-    connection.read(@session_id)
+    read_connection(minutes, count)
+  end
+
+  def read_connection(minutes, count)
+    connection.read(@session_id, minutes, count)
   end
 
   def ensure_session_id

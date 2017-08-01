@@ -40,12 +40,17 @@ Or install it yourself as:
 
 ### Usage
 
+"#read" method takes optional `minutes` and `count` arguments for number of minutes backward in time to ask the API for, and maximum number
+of records to return
+
 ```ruby
 require 'dexby'
 
 dex = Dexby.new('YourDexcomUsername','dexcomPassword12345')
 
 dex.read
+
+=> [{:trend=>:steady, :date=>#<DateTime: 2017-08-01T19:20:09-04:00 ((2457967j,84009s,920284537n),-14400s,2299161j)>, :value=>105}]
 ```
 
 ## Running tests
