@@ -132,9 +132,10 @@ RSpec.describe Dexby::Reader do
         end
         context "where reads return 500s" do
           before(:example) do
-            expect(fake_connection_class).to receive(:read).and_return([[],500])
+            expect(fake_connection_class).to receive(:read).and_return([[],500],[[],500])
           end
           it "raises exception" do
+	    expect(fake_connection_class).to receive(:login).and_return(['banana', 200])
             expect{ subject.read }.to raise_error StandardError
           end
         end
