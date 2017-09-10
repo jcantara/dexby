@@ -22,14 +22,14 @@ class Dexby::Reader
     ensure_session_id
     result = session_connection_read(minutes, count)
     if result[1] != 200
-      raise ::StandardError
+      raise ::StandardError, result[1]
     end
     parser.parse_all(result[0])
   end
 
   def session_connection_read(minutes, count)
     result = read_connection(minutes, count)
-    if result[1] == 401 # expired session_id
+    if result[1] == 401 || result[1] == 500 # expired session_id
       result = get_session_reread(minutes, count)
     end
     return result
