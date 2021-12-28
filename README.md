@@ -1,6 +1,10 @@
-# Dexby
+# DEPRECATED - Dexby
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 [![Build Status](https://travis-ci.org/jcantara/dexby.svg?branch=master)](https://travis-ci.org/jcantara/dexby)
+
+Deprecating this project for now; I don't use it at the moment and haven't had time to maintain it.
 
 Dexcom API wrapper for Ruby. Supply your dexcom username and password and get your real-time blood-glucose
 data from Dexcom for your own use outside of the phone apps or website. Useful for historic data archival and
